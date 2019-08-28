@@ -1,0 +1,31 @@
+.assignmentView-container {
+   padding: 16px;
+   background-color: lavender;
+   margin: 16px;
+}
+
+.assignmentView-title {
+    padding: 8px;
+    font-family: Arial;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.assignmentView-descr {
+    padding: 8px;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+.assignmentView-link {
+    padding: 8px;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+.assignmentView-grade {
+    padding: 8px;
+    font-family: Arial;
+    font-size: 16px;
+}
+
