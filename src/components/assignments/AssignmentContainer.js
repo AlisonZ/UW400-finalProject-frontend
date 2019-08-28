@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as assignments from '../api/assignments';
+import * as assignments from '../../api/assignments';
 
 import AssignmentView from './AssignmentView';
 
@@ -19,17 +19,17 @@ class AssignmentContainer extends React.Component {
 
     render() {
            return (
-           this.state.assignments.length ? ( <div>
-            {this.state.assignments.map(assignment =>
-                <AssignmentView
-                    title={assignment.assignmentTitle}
-                    descr={assignment.assignmentDescription}
-                    link={assignment.assignmentLink}
-                    grade={assignment.assignmentGrade}
-                />
-            )}
+               this.state.assignments.length ? (<div>
+                {this.state.assignments.map(assignment =>
+                    <AssignmentView
+                        title={assignment.assignmentTitle}
+                        descr={assignment.assignmentDescription}
+                        link={assignment.assignmentLink}
+                        grade={assignment.assignmentGrade}
+                    />
+                )}
 
-           </div>
+               </div>
             ) : null
     )}
 }
