@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 import Login from './auth/Login';
 import AssignmentView from './AssignmentView';
+import Signup from './auth/Signup';
 
 import * as auth from '../api/auth.js';
 import * as token from '../helpers/local-storage';
@@ -15,6 +16,7 @@ class App extends React.Component {
     }
 
     this.loginUser = this.loginUser.bind(this);
+    this.signupUser = this.signupUser.bind(this);
   }
 
 async componentDidMount () {
@@ -23,9 +25,6 @@ async componentDidMount () {
 
       this.setState({ currentUserId: user._id });
     }
-//    else {
-//      this.setState({ loading: false })
-//    }
   }
 
   async loginUser(user) {
@@ -35,6 +34,13 @@ async componentDidMount () {
 
     this.setState({ currentUserId: profile.user._id });
 
+  }
+
+  async signupUser(user) {
+    const response = await auth.signup(user);
+
+    const profile = await auth.profile();
+    this.setState({ currentUserId: profile.user._id });
   }
 
 
@@ -49,10 +55,16 @@ async componentDidMount () {
                  }} />
 
                  <Route path='/' exact component={() => {
-                    return this.state.currentUserId ? <Redirect to='/login' /> :
-                    <AssignmentView />
-
+                    return this.state.currentUserId ? <AssignmentView />:
+                    <Redirect to='/login' />;
                  }} />
+
+                  <Route path='/signup' exact component={() => {
+                     return this.state.currentUserId ? <Redirect to='/' /> :
+                     <Signup onSubmit={this.signupUser} />
+                     ;
+                  }} />
+
             </Switch>
         </Router>
       );
