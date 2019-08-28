@@ -1,0 +1,16 @@
+.navBar-container {
+    background-color: grey;
+    padding: 16px 32px;
+}
+
+.navBar-list {
+    list-style: none;
+}
+
+.navBar-link {
+    background-color: grey;
+    color: white;
+    border-style: none;
+    font-family: Arial;
+    font-size: 16px;
+}

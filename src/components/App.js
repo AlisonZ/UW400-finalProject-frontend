@@ -9,6 +9,8 @@ import NavBar from './NavBar';
 import * as auth from '../api/auth.js';
 import * as token from '../helpers/local-storage';
 
+import '../styles/app.css';
+
 class App extends React.Component {
   constructor () {
     super()
@@ -55,6 +57,7 @@ class App extends React.Component {
 
       return (
         <Router>
+        <h1 className="app-header">Assignment Tracker</h1>
             <NavBar logoutUser={this.logoutUser} currentUserId={this.state.currentUserId}/> :
             <Switch>
                 <Route path='/login' exact component={() => {
