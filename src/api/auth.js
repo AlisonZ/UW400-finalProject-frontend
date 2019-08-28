@@ -18,9 +18,8 @@ export const login = async (user) => {
 
   await token.setToken(json.token);
 
-  const profile = request('/api/profile');
 
-  return { json, profile };
+  return json;
 }
 
 export const profile = () => request('/api/profile');
