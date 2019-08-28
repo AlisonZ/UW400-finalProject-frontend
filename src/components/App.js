@@ -1,11 +1,42 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Login from './auth/login';
 
-function App() {
+import Login from './auth/Login';
+
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      currentUserId: null
+    }
+
+    this.loginUser = this.loginUser.bind(this)
+  }
+
+    loginUser(user) {
+        console.log('userrr', user)
+      fetch('http://localhost:5000/api/login', {
+        body: JSON.stringify(user),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+      }).then(res => res.json()).then(console.log)
+    }
+
+    render() {
+
   return (
-    <Login />
+    <Router>
+        <Switch>
+            <Route path='/login' exact component={() => {
+                return <Login onSubmit={this.loginUser} />
+             }} />
+        </Switch>
+    </Router>
   );
+  }
 }
 
 export default App;
