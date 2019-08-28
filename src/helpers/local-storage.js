@@ -8,6 +8,5 @@ export const getToken = () => {
 }
 
 export const clearToken = () => {
-console.log('in the clear')
   window.localStorage.clear(APPLICATION_LOCAL_STORAGE_KEY)
 }
