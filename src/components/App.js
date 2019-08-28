@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 import Login from './auth/Login';
-import AssignmentView from './AssignmentView';
+import AssignmentContainer from './AssignmentContainer';
 import Signup from './auth/Signup';
 import NavBar from './NavBar';
 
@@ -63,7 +63,7 @@ class App extends React.Component {
                  }} />
 
                  <Route path='/' exact component={() => {
-                    return this.state.currentUserId ? <AssignmentView currentUserId={this.state.currentUserId}/>:
+                    return this.state.currentUserId ? <AssignmentContainer currentUserId={this.state.currentUserId}/>:
                     <Redirect to='/login' />;
                  }} />
 
