@@ -14,18 +14,17 @@ class App extends React.Component {
   }
 
 
-
     render() {
 
-  return (
-    <Router>
-        <Switch>
-            <Route path='/login' exact component={() => {
-                return <Login onSubmit={auth.login} />
-             }} />
-        </Switch>
-    </Router>
-  );
+      return (
+        <Router>
+            <Switch>
+                <Route path='/login' exact component={() => {
+                    return <Login onSubmit={auth.login} />
+                 }} />
+            </Switch>
+        </Router>
+      );
   }
 }
 

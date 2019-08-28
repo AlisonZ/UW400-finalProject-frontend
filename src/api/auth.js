@@ -1,4 +1,5 @@
 import * as token from '../helpers/local-storage';
+import request from './request';
 
 const { NODE_ENV } = process.env
 const BASE_URL = NODE_ENV === 'development'
@@ -17,5 +18,9 @@ export const login = async (user) => {
 
   await token.setToken(json.token);
 
-  return json
+  const profile = request('/api/profile');
+
+  return { json, profile };
 }
+
+export const profile = () => request('/api/profile');
