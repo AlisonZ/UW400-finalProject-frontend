@@ -1,3 +1,5 @@
+import * as token from '../helpers/local-storage';
+
 const { NODE_ENV } = process.env
 const BASE_URL = NODE_ENV === 'development'
   ? 'http://localhost:5000'
@@ -13,6 +15,7 @@ export const login = async (user) => {
   })
   const json = await response.json()
 
-    console.log('respons', json);
+  await token.setToken(json.token);
+
   return json
 }
