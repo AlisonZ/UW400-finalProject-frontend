@@ -21,13 +21,13 @@ class App extends React.Component {
     this.logoutUser = this.logoutUser.bind(this);
   }
 
-async componentDidMount () {
-    if (token.getToken()) {
-      const { user } = await auth.profile();
+    async componentDidMount () {
+        if (token.getToken()) {
+          const { user } = await auth.profile();
 
-      this.setState({ currentUserId: user._id });
+          this.setState({ currentUserId: user._id });
+        }
     }
-  }
 
   async loginUser(user) {
     const response = await auth.login(user);
@@ -63,7 +63,7 @@ async componentDidMount () {
                  }} />
 
                  <Route path='/' exact component={() => {
-                    return this.state.currentUserId ? <AssignmentView />:
+                    return this.state.currentUserId ? <AssignmentView currentUserId={this.state.currentUserId}/>:
                     <Redirect to='/login' />;
                  }} />
 
