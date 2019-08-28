@@ -11,20 +11,9 @@ class App extends React.Component {
     this.state = {
       currentUserId: null
     }
-
-//    this.loginUser = this.loginUser.bind(this)
   }
 
-//    loginUser(user) {
-//        console.log('userrr', user)
-//      fetch('http://localhost:5000/api/login', {
-//        body: JSON.stringify(user),
-//        headers: {
-//          'Content-Type': 'application/json'
-//        },
-//        method: 'POST',
-//      }).then(res => res.json()).then(console.log)
-//    }
+
 
     render() {
 
