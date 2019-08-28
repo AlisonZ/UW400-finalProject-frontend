@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Login from './auth/Login';
 import AssignmentView from './AssignmentView';
 import Signup from './auth/Signup';
+import NavBar from './NavBar';
 
 import * as auth from '../api/auth.js';
 import * as token from '../helpers/local-storage';
@@ -17,6 +18,7 @@ class App extends React.Component {
 
     this.loginUser = this.loginUser.bind(this);
     this.signupUser = this.signupUser.bind(this);
+    this.logoutUser = this.logoutUser.bind(this);
   }
 
 async componentDidMount () {
@@ -43,11 +45,17 @@ async componentDidMount () {
     this.setState({ currentUserId: profile.user._id });
   }
 
+  async logoutUser() {
+    token.clearToken();
+    this.setState({ currentUserId: null });
+  }
+
 
     render() {
 
       return (
         <Router>
+            <NavBar logoutUser={this.logoutUser} currentUserId={this.state.currentUserId}/> :
             <Switch>
                 <Route path='/login' exact component={() => {
                     return this.state.currentUserId ? <Redirect to='/' /> :
