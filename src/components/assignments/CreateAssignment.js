@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as assignment from '../../api/assignments';
+import * as assignments from '../../api/assignments';
 
 class CreateAssignment extends React.Component {
 
@@ -10,19 +10,20 @@ class CreateAssignment extends React.Component {
             assignmentTitle: '',
             assignmentLink:'',
             assignmentDescription:'',
-            assignmentGrade:''
+            assignmentGrade: 95
         }
         this.handleChange = this.handleChange.bind(this);
-//        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
    handleChange({ target: {name, value}}) {
         this.setState({ [name]: value });
     }
 
-//    handleSubmit(e) {
-//        e.preventDefault();
-//    }
+    async handleSubmit(e) {
+        e.preventDefault();
+        const response = await assignments.createAssignment(this.state);
+    }
     render() {
         return(
             <div>

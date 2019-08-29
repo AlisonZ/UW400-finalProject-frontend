@@ -9,7 +9,7 @@ import CreateAssignment from './assignments/CreateAssignment';
 
 import * as auth from '../api/auth.js';
 import * as token from '../helpers/local-storage';
-//import * as assignment from '../api/assignments';
+//import * as assignments from '../api/assignments';
 
 import '../styles/app.css';
 
@@ -23,6 +23,7 @@ class App extends React.Component {
     this.loginUser = this.loginUser.bind(this);
     this.signupUser = this.signupUser.bind(this);
     this.logoutUser = this.logoutUser.bind(this);
+//    this.createAssignment = this.createAssignment.bind(this);
   }
 
     async componentDidMount () {
@@ -54,14 +55,9 @@ class App extends React.Component {
     this.setState({ currentUserId: null });
   }
 
-  //getAssignments function
-// call assignment.get assiignments
-//then passs this fn to the CreateAssignment component
-
-//asynch createAssignment() {
-//
-//}
-
+//  async createAssignment(assignment) {
+//    const response = await assignments.createAssignment(assignment);
+//  }
     render() {
 
       return (
