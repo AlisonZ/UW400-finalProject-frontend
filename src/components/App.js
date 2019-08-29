@@ -54,6 +54,7 @@ class App extends React.Component {
     this.setState({ currentUserId: null });
   }
 
+
     render() {
 
       return (
@@ -90,16 +91,7 @@ class App extends React.Component {
                        )
                   }} />
 
-                  <Route path="/edit" exact component={() => {
-                     return (
-                           <div>
-                                <h1>Edit Assignment</h1>
-                                <UpdateAssignment />
-                           </div>
-                     )
-
-                  }} />
-
+                    <Route path="/edit" component={EditAssignment}/>
             </Switch>
         </Router>
       );
@@ -107,3 +99,14 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+
+//                  <Route path='/edit' exact component={() => {
+//                     return (
+//                           <div>
+//                                <EditAssignment />
+//                           </div>
+//                     )
+//
+//                  }} />

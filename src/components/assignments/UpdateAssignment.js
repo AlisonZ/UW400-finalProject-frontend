@@ -24,6 +24,7 @@ class UpdateAssignment extends React.Component {
 
     async handleSubmit(e) {
         e.preventDefault();
+        console.log('this.state', this.state)
         const response = await assignments.createAssignment(this.state);
     }
     render() {

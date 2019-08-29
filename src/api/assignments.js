@@ -15,6 +15,23 @@ const BASE_URL = REACT_APP_API_DOMAIN;
 
 export const getAssignments = () => request('/api');
 
+export const getAssignment = async(assignmentId) => {
+    console.log('getASS', assignmentId)
+  const response = await fetch(`${BASE_URL}/api/assignments/${assignmentId}/edit`, {
+//       body: JSON.stringify(assignment),
+       headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token.getToken()}`
+        },
+        method: 'GET'
+      })
+    const json = await response.json()
+    console.log('getttttt', response)
+
+    return json;
+  }
+
+
 
 export const createAssignment = async (assignment) => {
   const response = await fetch(`${BASE_URL}/api/assignments/new`, {
