@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 import Login from './auth/Login';
 import AssignmentContainer from './assignments/AssignmentContainer';
+import EditAssignment from './assignments/EditAssignment'
 import Signup from './auth/Signup';
 import NavBar from './NavBar';
 import CreateAssignment from './assignments/CreateAssignment';
@@ -55,9 +56,6 @@ class App extends React.Component {
     this.setState({ currentUserId: null });
   }
 
-//  async createAssignment(assignment) {
-//    const response = await assignments.createAssignment(assignment);
-//  }
     render() {
 
       return (
@@ -82,7 +80,26 @@ class App extends React.Component {
                   }} />
 
                   <Route path="/new" exact component={() => {
-                    return <CreateAssignment />
+                    //TODO: this isn't working because of interaction with /login logic
+                    //future work will fix this if there is time
+//                    return this.state.currentUserId ? <CreateAssignment /> :
+//                        <Redirect to='/login' />;
+                       return (
+                           <div>
+                                <h1>Create New Assignment</h1>
+                                <CreateAssignment />
+                           </div>
+                       )
+                  }} />
+
+                  <Route path="/edit" exact component={() => {
+                     return (
+                           <div>
+                                <h1>Edit Assignment</h1>
+                                <CreateAssignment />
+                           </div>
+                     )
+
                   }} />
 
             </Switch>

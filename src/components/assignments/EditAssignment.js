@@ -2,11 +2,12 @@ import React from 'react';
 
 import * as assignments from '../../api/assignments';
 
-class CreateAssignment extends React.Component {
-
+class EditAssignment extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+        //These should be set based on the input from the req
+        //maybe in component did mount??
             assignmentTitle: '',
             assignmentLink:'',
             assignmentDescription:'',
@@ -27,6 +28,7 @@ class CreateAssignment extends React.Component {
     render() {
         return(
             <div>
+                <h1>Edit Assignment</h1>
                    <form onSubmit={this.handleSubmit}>
                         <div className='new-assignment-entry'>
                             <label>Assignment Title</label>
@@ -60,4 +62,4 @@ class CreateAssignment extends React.Component {
     }
 }
 
-export default CreateAssignment;
+export default EditAssignment;
