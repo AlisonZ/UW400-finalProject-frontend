@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as assignments from '../../api/assignments';
 
-class CreateAssignment extends React.Component {
+class UpdateAssignment extends React.Component {
 
     constructor(props) {
         super(props);
@@ -60,4 +60,4 @@ class CreateAssignment extends React.Component {
     }
 }
 
-export default CreateAssignment;
+export default UpdateAssignment;

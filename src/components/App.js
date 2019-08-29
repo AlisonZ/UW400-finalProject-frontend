@@ -6,11 +6,10 @@ import AssignmentContainer from './assignments/AssignmentContainer';
 import EditAssignment from './assignments/EditAssignment'
 import Signup from './auth/Signup';
 import NavBar from './NavBar';
-import CreateAssignment from './assignments/CreateAssignment';
+import UpdateAssignment from './assignments/UpdateAssignment';
 
 import * as auth from '../api/auth.js';
 import * as token from '../helpers/local-storage';
-//import * as assignments from '../api/assignments';
 
 import '../styles/app.css';
 
@@ -24,7 +23,6 @@ class App extends React.Component {
     this.loginUser = this.loginUser.bind(this);
     this.signupUser = this.signupUser.bind(this);
     this.logoutUser = this.logoutUser.bind(this);
-//    this.createAssignment = this.createAssignment.bind(this);
   }
 
     async componentDidMount () {
@@ -87,7 +85,7 @@ class App extends React.Component {
                        return (
                            <div>
                                 <h1>Create New Assignment</h1>
-                                <CreateAssignment />
+                                <UpdateAssignment />
                            </div>
                        )
                   }} />
@@ -96,7 +94,7 @@ class App extends React.Component {
                      return (
                            <div>
                                 <h1>Edit Assignment</h1>
-                                <CreateAssignment />
+                                <UpdateAssignment />
                            </div>
                      )
 
