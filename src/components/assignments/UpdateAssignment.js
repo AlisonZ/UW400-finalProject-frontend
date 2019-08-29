@@ -2,6 +2,8 @@ import React from 'react';
 
 import * as assignments from '../../api/assignments';
 
+import '../../styles/updateAssignment.css';
+
 class UpdateAssignment extends React.Component {
 
     constructor(props) {
@@ -28,25 +30,28 @@ class UpdateAssignment extends React.Component {
         return(
             <div>
                    <form onSubmit={this.handleSubmit}>
-                        <div className='new-assignment-entry'>
+                        <div className="updateAssignment-field">
                             <label>Assignment Title</label>
                             <input
+                                className="updateAssignment-input"
                                 onChange={this.handleChange}
                                 name='assignmentTitle'
                                 value={this.state.assignmentTitle}
                             />
                        </div>
-                       <div className='new-assignment-entry'>
+                       <div className="updateAssignment-field">
                            <label>Project Link</label>
                            <input
+                            className="updateAssignment-input"
                             onChange={this.handleChange}
                             name='assignmentLink'
                             value={this.state.assignmentLink}
                            />
                        </div>
-                      <div className='new-assignment-entry'>
+                      <div className="updateAssignment-field">
                           <label>Project Description</label>
                           <input
+                            className="updateAssignment-input"
                             onChange={this.handleChange}
                            name='assignmentDescription'
                             value={this.state.assignmentDescription}
