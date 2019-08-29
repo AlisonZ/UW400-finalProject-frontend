@@ -5,9 +5,11 @@ import Login from './auth/Login';
 import AssignmentContainer from './assignments/AssignmentContainer';
 import Signup from './auth/Signup';
 import NavBar from './NavBar';
+import CreateAssignment from './assignments/CreateAssignment';
 
 import * as auth from '../api/auth.js';
 import * as token from '../helpers/local-storage';
+//import * as assignment from '../api/assignments';
 
 import '../styles/app.css';
 
@@ -52,6 +54,13 @@ class App extends React.Component {
     this.setState({ currentUserId: null });
   }
 
+  //getAssignments function
+// call assignment.get assiignments
+//then passs this fn to the CreateAssignment component
+
+//asynch createAssignment() {
+//
+//}
 
     render() {
 
@@ -74,6 +83,10 @@ class App extends React.Component {
                      return this.state.currentUserId ? <Redirect to='/' /> :
                      <Signup onSubmit={this.signupUser} />
                      ;
+                  }} />
+
+                  <Route path="/new" exact component={() => {
+                    return <CreateAssignment />
                   }} />
 
             </Switch>
