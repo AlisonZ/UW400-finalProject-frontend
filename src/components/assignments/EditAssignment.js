@@ -11,6 +11,7 @@ class EditAssignment extends React.Component {
             assignmentTitle: '',
             assignmentLink:'',
             assignmentDescription:'',
+            id: '',
             assignmentGrade: 95
         }
         this.handleChange = this.handleChange.bind(this);
@@ -24,8 +25,8 @@ class EditAssignment extends React.Component {
 
     async handleSubmit(e) {
         e.preventDefault();
-        const response = await assignments.createAssignment(this.state);
-        console.log('this.state handlllle', this.state)
+        const response = await assignments.updateAssignment(this.state);
+//        console.log('handlesubbb',this.state)
     }
 
     async setAssignment(e) {
@@ -43,7 +44,8 @@ class EditAssignment extends React.Component {
             assignmentDescription,
             assignmentGrade,
             assignmentLink,
-            assignmentTitle
+            assignmentTitle,
+            id
        });
     }
 
