@@ -11,6 +11,7 @@ const BASE_URL = REACT_APP_API_DOMAIN;
 
 
 export const login = async (user) => {
+//    console.log('login userrrrr', user)
   const response = await fetch(`${BASE_URL}/api/login`, {
     body: JSON.stringify(user),
     headers: {

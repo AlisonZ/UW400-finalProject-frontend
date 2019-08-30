@@ -1,5 +1,7 @@
 import React from 'react';
 
+import AuthError from './AuthError';
+
 import '../../styles/inputFields.css';
 
 

@@ -21,7 +21,7 @@ class App extends React.Component {
     this.state = {
       currentUserId: null,
       gradedAssignments: '',
-      ungradedAssignments: ''
+      ungradedAssignments: '',
     }
 
     this.loginUser = this.loginUser.bind(this);
@@ -46,6 +46,10 @@ class App extends React.Component {
 
   async loginUser(user) {
     const response = await auth.login(user);
+
+    response.status === 201 ? this.setState({ validLoginCredentials: true }) : this.setState({ validLoginCredentials: false });
+
+
 
     const profile = await auth.profile();
 
@@ -74,12 +78,12 @@ class App extends React.Component {
             <NavBar logoutUser={this.logoutUser} currentUserId={this.state.currentUserId}/> :
             <Switch>
                 <Route path='/login' exact component={() => {
-                    return this.state.currentUserId ? <Redirect to='/' /> :
-                    <Login onSubmit={this.loginUser} />
+                    return this.state.currentUserId ? <Redirect to='/' /> : <Login onSubmit={this.loginUser} />;
                  }} />
 
                  <Route path='/' exact component={() => {
-                    return this.state.currentUserId ? <AssignmentContainer currentUserId={this.state.currentUserId}/>:
+
+                    return this.state.currentUserId ? <AssignmentContainer currentUserId={this.state.currentUserId}/> :
                     <Redirect to='/login' />;
                  }} />
 
