@@ -11,6 +11,7 @@ import AssignmentGrade from './assignments/AssignmentGrade';
 
 import * as auth from '../api/auth.js';
 import * as token from '../helpers/local-storage';
+import * as assignments from '../api/assignments';
 
 import '../styles/app.css';
 
@@ -18,7 +19,9 @@ class App extends React.Component {
   constructor () {
     super()
     this.state = {
-      currentUserId: null
+      currentUserId: null,
+      gradedAssignments: '',
+      ungradedAssignments: ''
     }
 
     this.loginUser = this.loginUser.bind(this);
@@ -29,8 +32,11 @@ class App extends React.Component {
     async componentDidMount () {
         if (token.getToken()) {
           const { user } = await auth.profile();
+          const assignmentList = await assignments.getGradedAssignments();
 
-          this.setState({ currentUserId: user._id });
+
+          this.setState({ currentUserId: user._id, gradedAssignments: assignmentList.gradedAssignments });
+          console.log('set state', this.state)
         }
     }
 
@@ -95,8 +101,14 @@ class App extends React.Component {
 
                     //TODO: add handling here if not logged in/not admin etc.
                   <Route path='/graded' exact component={() => {
-                              return <AssignmentGrade currentUserId={this.state.currentUserId}/>
+                              return <AssignmentGrade assignments={this.state.gradedAssignments}/>
                    }} />
+
+                 <Route path='/ungraded' exact component={() => {
+                             return <AssignmentGrade currentUserId={this.state.currentUserId}/>
+                  }} />
+
+
             </Switch>
         </Router>
       );
