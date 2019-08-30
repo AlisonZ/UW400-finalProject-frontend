@@ -7,6 +7,7 @@ import EditAssignment from './assignments/EditAssignment'
 import Signup from './auth/Signup';
 import NavBar from './NavBar';
 import UpdateAssignment from './assignments/UpdateAssignment';
+import AssignmentGrade from './assignments/AssignmentGrade';
 
 import * as auth from '../api/auth.js';
 import * as token from '../helpers/local-storage';
@@ -90,8 +91,12 @@ class App extends React.Component {
                            </div>
                        )
                   }} />
-
                     <Route path="/edit" component={EditAssignment}/>
+
+                    //TODO: add handling here if not logged in/not admin etc.
+                  <Route path='/graded' exact component={() => {
+                              return <AssignmentGrade currentUserId={this.state.currentUserId}/>
+                   }} />
             </Switch>
         </Router>
       );

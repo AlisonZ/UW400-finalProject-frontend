@@ -27,6 +27,7 @@ class AssignmentContainer extends React.Component {
                         link={assignment.assignmentLink}
                         grade={assignment.assignmentGrade}
                         id={assignment._id}
+                        admin={assignment.admin}
                     />
                 )}
 

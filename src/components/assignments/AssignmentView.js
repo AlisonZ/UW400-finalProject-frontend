@@ -1,23 +1,16 @@
 import React from 'react';
 import { withRouter, Redirect, Route } from 'react-router-dom';
 
+import GradeDisplay from './GradeDisplay';
+
 import '../../styles/assignmentView.css';
 
 class AssignmentView extends React.Component {
     constructor(props) {
         super(props);
-//        this.onEditClick = this.onEditClick.bind(this);
     }
-//
-//    onEditClick = () => {
-//        console.log('ive been cliccck')
-//    }
-
-
-
 
     render(){
-//        console.log('asssss view ID', this.props.id)
         const Button = withRouter(({ history }) => (
           <button
             type='button'
@@ -31,8 +24,19 @@ class AssignmentView extends React.Component {
             Edit
           </button>
         ))
-        const { title, descr, link, grade, id } = this.props;
-        return (
+        const { title, descr, link, grade, id, admin, showGrades } = this.props;
+        return showGrades ? (
+                <div className="assignmentView-container">
+                    <div className="assignmentView-title">{title}</div>
+                    <div className="assignmentView-descr"> {descr}</div>
+                    <div className="assignmentView-link">{link} </div>
+                    <GradeDisplay grade={grade}/>
+                    <Button id={id}/>
+
+                    <button>Delete</button>
+                </div>
+
+        ) :
             <div className="assignmentView-container">
                 <div className="assignmentView-title">{title}</div>
                 <div className="assignmentView-descr"> {descr}</div>
@@ -42,7 +46,6 @@ class AssignmentView extends React.Component {
 
                 <button>Delete</button>
             </div>
-        )
     }
 }
 

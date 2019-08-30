@@ -6,8 +6,6 @@ class EditAssignment extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        //These should be set based on the input from the req
-        //maybe in component did mount??
             assignmentTitle: '',
             assignmentLink:'',
             assignmentDescription:'',
@@ -26,13 +24,11 @@ class EditAssignment extends React.Component {
     async handleSubmit(e) {
         e.preventDefault();
         const response = await assignments.updateAssignment(this.state);
-//        console.log('handlesubbb',this.state)
     }
 
     async setAssignment(e) {
         e.preventDefault();
         const response = await assignments.getAssignment(this.props.id);
-//        console.log('response', response)
     }
 
   async componentDidMount () {
