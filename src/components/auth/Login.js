@@ -1,5 +1,8 @@
 import React from 'react';
 
+import '../../styles/inputFields.css';
+
+
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -25,26 +28,28 @@ class Login extends React.Component {
 
     render(props) {
         return(
-           <div>
-                <h1>LOGIN!!</h1>
+           <div className="inputField-container">
+                <h1 className="inputField-title">Login</h1>
                <form onSubmit={this.handleSubmit}>
-                    <div className='login-form-entry'>
-                        <label>Email address</label>
+                    <div className='inputField-form-entry'>
+                        <label className="inputField-form-label">Email address</label>
                         <input
                             onChange={this.handleChange}
                             name='email'
                             value={this.state.email}
+                            className="inputField-form-input"
                         />
                    </div>
-                   <div className='login-form-entry'>
-                       <label>Password</label>
+                   <div className='inputField-form-entry'>
+                       <label className="inputField-form-label">Password</label>
                        <input
                         onChange={this.handleChange}
                         name='password'
                         value={this.state.password}
+                        className="inputField-form-input"
                        />
                    </div>
-                   <button type='submit'>Submit</button>
+                   <button type='submit' className="inputField-button">Submit</button>
                </form>
            </div>
 

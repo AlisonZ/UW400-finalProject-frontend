@@ -1,5 +1,8 @@
 import React from 'react';
 
+import '../../styles/inputFields.css';
+
+
 class Signup extends React.Component {
     constructor(props) {
         super(props);
@@ -26,42 +29,46 @@ class Signup extends React.Component {
 
     render() {
         return(
-            <div>
-                <h1>SIGNUP!!</h1>
+            <div className="inputField-container">
+                <h1 className="inputField-title">Signup</h1>
                 <form onSubmit={this.handleSubmit}>
-                      <div className='login-form-entry'>
-                            <label>Email address</label>
+                      <div className='inputField-form-entry'>
+                            <label className="inputField-form-label">Email address</label>
                             <input
                                 onChange={this.handleChange}
                                 name='email'
                                 value={this.state.email}
+                                className="inputField-form-input"
                             />
                        </div>
-                       <div className='login-form-entry'>
-                           <label>Password</label>
+                       <div className='inputField-form-entry'>
+                           <label className="inputField-form-label">Password</label>
                            <input
                             onChange={this.handleChange}
                             name='password'
                             value={this.state.password}
+                            className="inputField-form-input"
                            />
                        </div>
-                      <div className='login-form-entry'>
-                          <label>First Name</label>
+                      <div className='inputField-form-entry'>
+                          <label className="inputField-form-label">First Name</label>
                           <input
                            onChange={this.handleChange}
                            name='firstName'
                            value={this.state.firstName}
+                           className="inputField-form-input"
                           />
                       </div>
-                     <div className='login-form-entry'>
-                         <label>Last Name</label>
+                     <div className='inputField-form-entry'>
+                         <label className="inputField-form-label">Last Name</label>
                          <input
                           onChange={this.handleChange}
                           name='lastName'
                           value={this.state.lastName}
+                          className="inputField-form-input"
                          />
                      </div>
-                       <button type='submit'>Submit</button>
+                       <button type='submit' className="inputField-button">Submit</button>
                 </form>
             </div>
         )

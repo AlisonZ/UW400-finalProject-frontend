@@ -28,13 +28,17 @@ class NavBar extends React.Component {
         ) :
             <div className="navBar-container">
                 <li className="navBar-list">
-                    <button className="navBar-link">
+                    <NavLink
+                        to="/signup"
+                        className="navBar-link"
+                    >
                         Signup
-                    </button>
+                    </NavLink>
 
-                    <button className="navBar-link">
+
+                    <NavLink to="/login" className="navBar-link">
                         Login
-                    </button>
+                    </NavLink>
                 </li>
 
             </div>;

@@ -3,6 +3,8 @@ import React from 'react';
 import * as assignments from '../../api/assignments';
 
 import '../../styles/updateAssignment.css';
+import '../../styles/inputFields.css';
+
 
 class UpdateAssignment extends React.Component {
 
@@ -31,33 +33,33 @@ class UpdateAssignment extends React.Component {
             <div>
                    <form onSubmit={this.handleSubmit}>
                         <div className="updateAssignment-field">
-                            <label>Assignment Title</label>
+                            <label className="inputField-form-label ">Assignment Title</label>
                             <input
-                                className="updateAssignment-input"
+                                className="inputField-form-input"
                                 onChange={this.handleChange}
                                 name='assignmentTitle'
                                 value={this.state.assignmentTitle}
                             />
                        </div>
                        <div className="updateAssignment-field">
-                           <label>Project Link</label>
+                           <label className="inputField-form-label">Project Link</label>
                            <input
-                            className="updateAssignment-input"
+                            className="inputField-form-input"
                             onChange={this.handleChange}
                             name='assignmentLink'
                             value={this.state.assignmentLink}
                            />
                        </div>
                       <div className="updateAssignment-field">
-                          <label>Project Description</label>
+                          <label className="inputField-form-label">Project Description</label>
                           <input
-                            className="updateAssignment-input"
+                            className="inputField-form-input"
                             onChange={this.handleChange}
-                           name='assignmentDescription'
+                            name='assignmentDescription'
                             value={this.state.assignmentDescription}
                           />
                       </div>
-                       <button type='submit'>Submit</button>
+                       <button type='submit' className="inputField-button">Submit</button>
                    </form>
 
             </div>

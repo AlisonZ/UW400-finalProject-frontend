@@ -1,0 +1,32 @@
+.inputField-title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.inputField-container {
+    margin-left: 24px;
+    padding: 8px;
+    font-family: Arial;
+}
+
+.inputField-form-entry {
+    font-size: 20px;
+    padding: 4px;
+}
+
+.inputField-form-label {
+    padding-right: 16px;
+}
+
+.inputField-form-input {
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.inputField-button {
+    font-family: Arial;
+    font-size: 24px;
+    padding: 8px;
+    background-color: lavender;
+    border-radius: 4px;
+}
