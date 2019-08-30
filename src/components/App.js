@@ -32,10 +32,16 @@ class App extends React.Component {
     async componentDidMount () {
         if (token.getToken()) {
           const { user } = await auth.profile();
-          const assignmentList = await assignments.getGradedAssignments();
+          const gradedAssignmentList = await assignments.getGradedAssignments();
+          const ungradedAssignmentsList = await assignments.getUngradedAssignments();
 
 
-          this.setState({ currentUserId: user._id, gradedAssignments: assignmentList.gradedAssignments });
+          this.setState({
+            currentUserId: user._id,
+            gradedAssignments: gradedAssignmentList.gradedAssignments,
+            ungradedAssignments: ungradedAssignmentsList.ungradedAssignments
+            });
+
           console.log('set state', this.state)
         }
     }
@@ -105,7 +111,7 @@ class App extends React.Component {
                    }} />
 
                  <Route path='/ungraded' exact component={() => {
-                             return <AssignmentGrade currentUserId={this.state.currentUserId}/>
+                             return <AssignmentGrade assignments={this.state.ungradedAssignments}/>
                   }} />
 
 

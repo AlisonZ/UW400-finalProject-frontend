@@ -60,5 +60,17 @@ export const getGradedAssignments = async() => {
   const json = await response.json()
 
   return json;
+}
 
+export const getUngradedAssignments = async() => {
+  const response = await fetch(`${BASE_URL}/api/assignments/ungraded`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token.getToken()}`
+    },
+    method: 'GET'
+  })
+  const json = await response.json()
+
+  return json;
 }
