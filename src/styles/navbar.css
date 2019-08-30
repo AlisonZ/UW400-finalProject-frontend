@@ -13,4 +13,9 @@
     border-style: none;
     font-family: Arial;
     font-size: 16px;
+    margin: 8px;
+}
+
+#logout {
+    text-decoration: underline;
 }
