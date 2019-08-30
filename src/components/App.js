@@ -41,8 +41,6 @@ class App extends React.Component {
             gradedAssignments: gradedAssignmentList.gradedAssignments,
             ungradedAssignments: ungradedAssignmentsList.ungradedAssignments
             });
-
-          console.log('set state', this.state)
         }
     }
 

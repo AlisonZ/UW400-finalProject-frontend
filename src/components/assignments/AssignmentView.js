@@ -3,15 +3,31 @@ import { withRouter, Redirect, Route } from 'react-router-dom';
 
 import GradeDisplay from './GradeDisplay';
 
+import * as assignments from '../../api/assignments';
+
+
 import '../../styles/assignmentView.css';
 
 class AssignmentView extends React.Component {
     constructor(props) {
         super(props);
+//        this.deleteAssign = this.deleteAssign.bind(this);
     }
 
+
+    async deleteAssign(id) {
+//            await history.push({
+//                pathname: `/`,
+//                state:{ id: this.props.id }
+//                })
+//        //const response = await assignments.deleteAssignment(this.state);
+        const response = await assignments.deleteAssignment(id);
+//        console.log('deletes asssignnnn', id);
+    }
+
+
     render(){
-        const Button = withRouter(({ history }) => (
+        const EditButton = withRouter(({ history }) => (
           <button
             type='button'
             onClick={() => history.push({
@@ -23,15 +39,29 @@ class AssignmentView extends React.Component {
           >
             Edit
           </button>
-        ))
+        ));
+
+//         const DeleteButton = withRouter(({ history }) => (
+//              <button
+//                    type='button'
+//                    onClick={() => this.deleteAssign(id)}
+//              >
+//                Delete
+//              </button>
+//        ));
+
+
+
         const { title, descr, link, grade, id, admin, showGrades } = this.props;
+
+//        console.log('!!!!@@@@', id)
         return showGrades ? (
                 <div className="assignmentView-container">
                     <div className="assignmentView-title">{title}</div>
                     <div className="assignmentView-descr"> {descr}</div>
                     <div className="assignmentView-link">{link} </div>
                     <GradeDisplay grade={grade}/>
-                    <Button id={id}/>
+                    <EditButton id={id}/>
 
                     <button>Delete</button>
                 </div>
@@ -42,9 +72,14 @@ class AssignmentView extends React.Component {
                 <div className="assignmentView-descr"> {descr}</div>
                 <div className="assignmentView-link">{link} </div>
                 <div className="assignmentView-grade"> {grade} </div>
-                <Button id={id}/>
+                <EditButton id={id}/>
 
-                <button>Delete</button>
+                <button
+                    type='button'
+                    onClick={() => this.deleteAssign(id)}
+                >
+                    Delete
+                </button>
             </div>
     }
 }

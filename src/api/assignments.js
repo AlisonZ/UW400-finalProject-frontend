@@ -74,3 +74,18 @@ export const getUngradedAssignments = async() => {
 
   return json;
 }
+
+export const deleteAssignment = async(id) => {
+  const response = await fetch(`${BASE_URL}/api/assignments/`, {
+    params: id,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token.getToken()}`
+    },
+    method: 'DELETE'
+  })
+
+  const json = await response.json()
+
+  return json;
+}
