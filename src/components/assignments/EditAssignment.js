@@ -2,6 +2,8 @@ import React from 'react';
 
 import * as assignments from '../../api/assignments';
 
+import '../../styles/inputFields.css';
+
 class EditAssignment extends React.Component {
     constructor(props) {
         super(props);
@@ -49,34 +51,37 @@ class EditAssignment extends React.Component {
 
     render() {
         return(
-            <div>
-                <h1>Edit Assignment!!!!</h1>
+            <div className="inputField-container">
+                <h1 className="inputField-title">Edit Assignment</h1>
                    <form onSubmit={this.handleSubmit}>
                         <div className='new-assignment-entry'>
-                            <label>Assignment Title</label>
+                            <label className="inputField-form-label">Assignment Title</label>
                             <input
                                 onChange={this.handleChange}
                                 name='assignmentTitle'
                                 value={this.state.assignmentTitle}
+                                 className="inputField-form-input"
                             />
                        </div>
                        <div className='new-assignment-entry'>
-                           <label>Project Link</label>
+                           <label className="inputField-form-label">Project Link</label>
                            <input
                             onChange={this.handleChange}
                             name='assignmentLink'
                             value={this.state.assignmentLink}
+                            className="inputField-form-input"
                            />
                        </div>
                       <div className='new-assignment-entry'>
-                          <label>Project Description</label>
+                          <label className="inputField-form-label">Project Description</label>
                           <input
                             onChange={this.handleChange}
                            name='assignmentDescription'
                             value={this.state.assignmentDescription}
+                             className="inputField-form-input"
                           />
                       </div>
-                       <button type='submit'>Submit</button>
+                       <button type='submit' className="inputField-button">Submit</button>
                    </form>
 
             </div>

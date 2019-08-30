@@ -1,6 +1,7 @@
 .assignmentView-container {
    background-color: lavender;
    margin: 64px;
+   padding: 16px;
 }
 
 .assignmentView-title {
@@ -26,5 +27,13 @@
     padding: 8px;
     font-family: Arial;
     font-size: 16px;
+}
+
+.assignmentView-button {
+    font-family: Arial;
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 4px;
+    margin: 4px;
 }
 

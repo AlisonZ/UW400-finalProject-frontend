@@ -96,7 +96,6 @@ class App extends React.Component {
 //                        <Redirect to='/login' />;
                        return (
                            <div>
-                                <h1>Create New Assignment</h1>
                                 <UpdateAssignment />
                            </div>
                        )
@@ -120,14 +119,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-
-//                  <Route path='/edit' exact component={() => {
-//                     return (
-//                           <div>
-//                                <EditAssignment />
-//                           </div>
-//                     )
-//
-//                  }} />

@@ -30,7 +30,8 @@ class UpdateAssignment extends React.Component {
     }
     render() {
         return(
-            <div>
+            <div className="inputField-container">
+                 <h1 className="inputField-title">Create New Assignment</h1>
                    <form onSubmit={this.handleSubmit}>
                         <div className="updateAssignment-field">
                             <label className="inputField-form-label ">Assignment Title</label>
